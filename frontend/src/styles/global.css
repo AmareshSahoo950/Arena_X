@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    position: relative;
+    background: url('https://cdn.pixabay.com/photo/2024/08/17/05/46/ai-generated-8975148_1280.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply text-cyber-cyan;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+  }
+
+  .neon-title {
+    @apply text-3xl sm:text-4xl md:text-5xl text-center mb-6 md:mb-8 text-cyber-cyan uppercase tracking-wider;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  }
+
+  .neon-subtitle {
+    @apply text-lg md:text-xl text-center mb-6 md:mb-8 text-cyber-magenta;
+    text-shadow: 0 0 10px #ff00ff;
+  }
+
+  .cyber-container {
+    @apply max-w-5xl mx-auto p-4 md:p-8 border-2 border-cyber-cyan rounded bg-black/80 relative z-[2];
+    box-shadow: 0 0 10px #00ffff, inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  .error-message {
+    @apply bg-red-500/20 border border-red-500 text-red-500 p-4 mb-4 text-center;
+    box-shadow: 0 0 10px #ff0000;
+  }
+
+  .warning-message {
+    @apply bg-yellow-500/20 border border-yellow-500 text-yellow-500 p-4 mb-4 text-center;
+    box-shadow: 0 0 10px #ffff00;
+  }
+
+  .no-data {
+    @apply text-center text-lg md:text-xl text-gray-500 my-6 md:my-8;
+  }
+}
+
+@layer utilities {
+  @keyframes slideIn {
+    from {
+      right: -400px;
+    }
+
+    to {
+      right: 20px;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+
+  .logo-v-left {
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .logo-v-right {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.neon-timer {
+  color: #22d3ee; /* cyan */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  text-shadow:
+    0 0 6px #22d3ee,
+    0 0 12px #22d3ee,
+    0 0 18px #22d3ee,
+    0 0 24px #ec4899; /* pink glow */
+}
